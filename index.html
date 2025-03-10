@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CryptoVaultX - Secure Holdings</title>
+  <title>CryptoVaultX - Secure Crypto Holdings</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -12,14 +12,14 @@
   <div class="container">
     <div class="navbar">
       <h1>CryptoVaultX</h1>
-      <div class="user-info">
+      <div class="user-info" id="user-info" style="display: none;">
         <img src="https://via.placeholder.com/40" alt="Rachel" class="avatar">
         <span>Rachel</span>
         <button class="logout-btn" onclick="logout()">Log Out</button>
       </div>
     </div>
     
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar" style="display: none;">
       <ul>
         <li><a href="#" onclick="showSection('dashboard')"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#" onclick="showSection('recharge')"><i class="fas fa-plus"></i> Recharge</a></li>
@@ -39,7 +39,7 @@
         <div id="error" class="error"></div>
       </div>
 
-      <div id="dashboard" class="section">
+      <div id="dashboard" class="section" style="display: none;">
         <div class="dashboard-grid">
           <div class="card">
             <h3>Live Balance</h3>
